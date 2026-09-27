@@ -1,22 +1,18 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
         n = len(s)
-        L = 0
-        R = n - 1
-
-        while L < R:
-            if not s[L].isalnum():
-                L += 1
+        l = 0
+        r = n-1
+        while l<r:
+            if not s[l].isalnum():
+                l += 1
                 continue
-            if not s[R].isalnum():
-                R -= 1
+            if not s[r].isalnum():
+                r -= 1
                 continue
-            if not s[L].lower() == s[R].lower():
+            if s[l].lower() != s[r].lower():
                 return False
+            l += 1
+            r -= 1
             
-            L += 1
-            R -= 1
-
         return True
-
-        
